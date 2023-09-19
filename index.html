@@ -10,26 +10,26 @@
     <form id="taskForm">
       <div class="input-field">
         <input type="text" id="taskName" required>
-        <label for="taskName">Task Name</label>
+        <label for="taskName">Наименование</label>
       </div>
 
-      <label>Task Importance:</label>
+      <label>Важность:</label>
       <p>
         <label>
           <input type="radio" class="with-gap" name="taskImportance" value="low" checked />
-          <span>Low</span>
+          <span>Низкая</span>
         </label>
       </p>
       <p>
         <label>
           <input type="radio" class="with-gap" name="taskImportance" value="medium" />
-          <span>Medium</span>
+          <span>Средняя</span>
         </label>
       </p>
       <p>
         <label>
           <input type="radio" class="with-gap" name="taskImportance" value="high" />
-          <span>High</span>
+          <span>Высокая</span>
         </label>
       </p>
 
@@ -37,32 +37,32 @@
       <p>
         <label>
           <input type="radio" class="with-gap" name="taskType" value="consultation" checked />
-          <span>Consultation</span>
+          <span>Консультация</span>
         </label>
       </p>
       <p>
         <label>
           <input type="radio" class="with-gap" name="taskType" value="revision" />
-          <span>Revision</span>
+          <span>Доработка</span>
         </label>
       </p>
 
       <div class="input-field">
         <textarea id="taskDescription" class="materialize-textarea" required></textarea>
-        <label for="taskDescription">Task Description</label>
+        <label for="taskDescription">Описание</label>
       </div>
 
       <div class="file-field input-field">
         <div class="btn">
-          <span>Attach Files</span>
+          <span>Файлы</span>
           <input type="file" multiple>
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder="Select files">
+          <input class="file-path validate" type="text" placeholder="Выбранные файлы">
         </div>
       </div>
 
-      <button class="btn waves-effect waves-light" type="submit">Add Task</button>
+      <button class="btn waves-effect waves-light" type="submit">Создать задачу</button>
     </form>
   </div>
 
