@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+  <div class="container">
+    <form id="taskForm">
+      <div class="input-field">
+        <input type="text" id="taskName" required>
+        <label for="taskName">Task Name</label>
+      </div>
+
+      <label>Task Importance:</label>
+      <p>
+        <label>
+          <input type="radio" class="with-gap" name="taskImportance" value="low" checked />
+          <span>Low</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="radio" class="with-gap" name="taskImportance" value="medium" />
+          <span>Medium</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="radio" class="with-gap" name="taskImportance" value="high" />
+          <span>High</span>
+        </label>
+      </p>
+
+      <label>Task Type:</label>
+      <p>
+        <label>
+          <input type="radio" class="with-gap" name="taskType" value="consultation" checked />
+          <span>Consultation</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="radio" class="with-gap" name="taskType" value="revision" />
+          <span>Revision</span>
+        </label>
+      </p>
+
+      <div class="input-field">
+        <textarea id="taskDescription" class="materialize-textarea" required></textarea>
+        <label for="taskDescription">Task Description</label>
+      </div>
+
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Attach Files</span>
+          <input type="file" multiple>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Select files">
+        </div>
+      </div>
+
+      <button class="btn waves-effect waves-light" type="submit">Add Task</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      M.FormSelect.init(elems);
+
+      var fileInput = document.querySelectorAll('.file-field input[type="file"]');
+      M.FileInput.init(fileInput);
+    });
+
+    document.getElementById('taskForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Handle form submission logic here
+      
+      // Access form values
+      var taskName = document.getElementById('taskName').value;
+      var taskImportance = getSelectedValue('taskImportance');
+      var taskType = getSelectedValue('taskType');
+      var taskDescription = document.getElementById('taskDescription').value;
+      var taskFiles = document.getElementById('taskFiles').files;
+
+      console.log(taskName, taskImportance, taskType, taskDescription, taskFiles);
+    });
+
+    function getSelectedValue(name) {
+      var radios = document.getElementsByName(name);
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          return radios[i].value;
+        }
+      }
+      return '';
+    }
+  </script>
+</body>
+</html>
